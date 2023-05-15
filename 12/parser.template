@@ -1,0 +1,14 @@
+class Row:
+	def __init__(self, line):
+		self.cols = line.split(';')
+		self.Survived = self.cols[1]
+		self.Name = self.cols[3]
+		self.Sex = self.cols[4]
+
+class Parser:
+	def __init__(self, fn):
+		self.rows = []	 		
+		with open(fn) as f:
+			next(f)
+			for line in f: 
+				self.rows.append(Row(line))
